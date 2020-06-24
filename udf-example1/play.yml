@@ -1,8 +1,6 @@
 ---
 - hosts: local
   connection: local
-  collections:
-   - F5solutionsengineering.ss_cat
   vars_files:
     - ./udf_infra.yml
     - ./secrets.yml
@@ -16,6 +14,6 @@
     - application_template: AS3-httpsv2
     - application_member_type: address
   roles:
-    - ipam_phpipam
-    - cert_cfssl
-    - bigip_as3_deploy
+    - F5solutionsengineering.ss_cat.ipam_phpipam
+    - F5solutionsengineering.ss_cat.cert_cfssl
+    - F5solutionsengineering.ss_cat.bigip_as3_deploy

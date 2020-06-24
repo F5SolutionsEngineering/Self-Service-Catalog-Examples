@@ -14,6 +14,6 @@
     - application_template: AS3-httpsv2
     - application_member_type: address
   roles:
-    - f5solutionsengineering.ss_cat/ipam_phpipam
-    - f5solutionsengineering.ss_cat/cert_cfssl
-    - f5solutionsengineering.ss_cat/bigip_as3_deploy
+    - F5solutionsengineering.ss_cat/ipam_phpipam
+    - F5solutionsengineering.ss_cat/cert_cfssl
+    - F5solutionsengineering.ss_cat/bigip_as3_deploy

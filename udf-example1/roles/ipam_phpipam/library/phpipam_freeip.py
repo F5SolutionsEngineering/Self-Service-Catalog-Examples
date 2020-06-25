@@ -173,7 +173,7 @@ def main():
             module.fail_json(msg='Subnet or section doesn\'t exist', **result)
     else:
         #Delete based on hostname
-        ip_id = session.get_ip_hostame(hostname)
+        ip_id = session.get_ip_hostname(hostname)
         deleteip_url = url + 'addresses/%s/' % ip_id
         try:
             deletion = session.remove(

@@ -15,7 +15,7 @@
     - set_fact:
         _job_virtual_address: "{{ new_ip.ip }}"
   
-  when: state == 'present'
+  when: phpIPAM_state == 'present'
 
 - name: Remove IP address reservation with phpIPAM
   block:
@@ -29,5 +29,5 @@
         description: "{{ phpIPAM_description }}"
         state: "{{ phpIPAM_state }}"
 
-  when: state == 'absent'
+  when: phpIPAM_state == 'absent'
   

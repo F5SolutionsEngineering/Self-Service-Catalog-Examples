@@ -1,0 +1,33 @@
+---
+- name: Add DNS record with phpIPAM
+  block:
+    - phpipam_freeip:
+        username: "{{ phpIPAM_username }}"
+        password: "{{ phpIPAM_password }}"
+        url: "{{ phpIPAM_url }}"
+        subnet: "{{ phpIPAM_subnet }}"
+        section: "{{ phpIPAM_section }}"
+        hostname: "{{ phpIPAM_hostname }}"
+        description: "{{ phpIPAM_description }}"
+        state: "{{ phpIPAM_state }}"
+      register: new_ip
+
+    - set_fact:
+        _job_virtual_address: "{{ new_ip.ip }}"
+  
+  when: state == 'present'
+
+- name: Remove IP address reservation with phpIPAM
+  block:
+    - phpipam_freeip:
+        username: "{{ phpIPAM_username }}"
+        password: "{{ phpIPAM_password }}"
+        url: "{{ phpIPAM_url }}"
+        subnet: "{{ phpIPAM_subnet }}"
+        section: "{{ phpIPAM_section }}"
+        hostname: "{{ phpIPAM_hostname }}"
+        description: "{{ phpIPAM_description }}"
+        state: "{{ phpIPAM_state }}"
+
+  when: state == 'absent'
+  

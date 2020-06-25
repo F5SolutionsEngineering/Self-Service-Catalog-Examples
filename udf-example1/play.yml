@@ -1,5 +1,5 @@
 ---
-- hosts: local
+- hosts: bigip1
   connection: local
   vars_files:
     - ./udf_infra.yml

@@ -147,6 +147,8 @@ def main():
     description = module.params['description']
     state = module.params['state']
 
+    print("DEBUG: " + url)
+
     session = PhpIpamWrapper(username, password, url)
     try:
         session.create_session()

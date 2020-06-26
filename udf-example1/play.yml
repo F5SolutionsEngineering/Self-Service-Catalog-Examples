@@ -3,7 +3,7 @@
   connection: local
   vars_files:
     - ./udf_infra.yml
-    - ./app_setting.yml
+    - ./app_settings.yml
     - ./secrets.yml
   vars:
     - deployment_state: present

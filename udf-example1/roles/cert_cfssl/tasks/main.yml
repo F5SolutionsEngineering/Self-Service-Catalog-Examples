@@ -9,12 +9,12 @@
         hosts: "{{ cfssl_hosts }}"
         names: "{{ cfssl_names }}"
       register: this_cert
-      no_log: true
+      no_log: false
 
     - set_fact:
         _job_cert: "{{ this_cert['cert'] }}"
         _job_key: "{{ this_cert['key'] }}"
-      no_log: true
+      no_log: false
   when: cfssl_state == 'present'
  
 

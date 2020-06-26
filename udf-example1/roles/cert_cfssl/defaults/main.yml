@@ -4,4 +4,4 @@ cfssl_common_name: "{{ application_fqdn }}"
 cfssl_hosts:
   - "{{ application_fqdn }}"
   - "{{ application_name.split('.')[0] }}"
-cfssl_state: "{{ application_state|default('present') }}"
+cfssl_state: "{{ deployment_state|default('present') }}"

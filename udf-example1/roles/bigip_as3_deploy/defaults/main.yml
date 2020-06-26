@@ -5,7 +5,7 @@ bigip_provider:
   user: "{{ bigip_user }}"
   password: "{{ bigip_password }}"
   validate_certs: false
-as3_state: "{{ application_state|default('present') }}"
+as3_state: "{{ deployment_state|default('present') }}"
 as3_template: "{{application_template }}"
 as3_app_name: "{{ application_name }}"
 as3_tenant: "{{ 'tenant-' + application_name }}"

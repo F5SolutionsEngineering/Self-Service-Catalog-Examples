@@ -1,5 +1,7 @@
 ---
 validate_certs: false
 cfssl_common_name: "{{ application_fqdn }}"
-cfssl_hosts: "{{ application_sans }}"
+cfssl_hosts:
+  - "{{ application_fqdn }}"
+  - "{{ application_name.split('.')[0] }}"
 cfssl_state: "{{ application_state|default('present') }}"

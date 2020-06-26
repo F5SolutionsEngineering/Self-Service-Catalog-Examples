@@ -4,6 +4,7 @@
   gather_facts: no
   tasks:
     - docker_compose:
+        state: present
         project_src: demo-app
         scale:
           web-app: 2

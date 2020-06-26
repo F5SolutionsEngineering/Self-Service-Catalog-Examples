@@ -1,0 +1,13 @@
+---
+- name: Test the web-app service
+  hosts: UDFdocker
+  gather_facts: no
+  tasks:
+    - docker_compose:
+        project_src: demo-app
+        scale:
+          web-app: 2
+      register: output
+
+    - debug:
+        var: output

@@ -1,5 +1,6 @@
 ---
 - hosts: bigip1
+  gather_facts: false
   connection: local
   vars_files:
     - ./udf_infra.yml
@@ -12,3 +13,9 @@
     - ipam_phpipam
     - cert_cfssl
     - bigip_as3_deploy
+  tasks:
+    - name: Important info
+      debug:
+        msg:
+        - "Application URL is: {{ application_fqdn }}"
+        - "Application Virtual Server Address: {{ _job_virtual_address }}"

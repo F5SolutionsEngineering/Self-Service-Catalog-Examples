@@ -4,6 +4,7 @@
     - bigip_appsvcs_extension:
         content: "{{ lookup('template', 'templates/' + as3_template + '.j2') }}"
         provider: "{{ bigip_provider }}"
+
   when: as3_state == "present"
 
 - name: Remove Application Services with AS3

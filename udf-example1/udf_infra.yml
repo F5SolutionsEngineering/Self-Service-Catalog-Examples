@@ -8,5 +8,6 @@ application_template: AS3-httpsv2
 application_tenant: "{{  application_fqdn.split('.')[0] | lower }}"
 application_pool_members: 
   - 10.1.10.5:8080
+  - 10.1.10.5:8081
 application_member_type: address
 

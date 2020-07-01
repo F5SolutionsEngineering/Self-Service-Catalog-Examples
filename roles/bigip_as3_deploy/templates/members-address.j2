@@ -1,0 +1,10 @@
+[
+{% set c = joiner(',') %}
+{% for member in as3_pool_members %}{{ c() }}
+    { 
+    "servicePort": {{ member.split(':')[1]|int }},
+    "serverAddresses": [ "{{ member.split(':')[0] }}" ],
+    "shareNodes": {{ as3_share_nodes|lower }}
+    }
+{% endfor %}
+]

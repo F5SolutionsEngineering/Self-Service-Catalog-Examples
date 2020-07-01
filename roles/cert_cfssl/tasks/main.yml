@@ -1,0 +1,22 @@
+---
+- name: Request a Certificate from CFSSL
+  block:
+    - cfssl_newcert:
+        state: "{{ cfssl_state }}"
+        cfssl_url: "{{ cfssl_url }}"
+        validate_certs: "{{ validate_certs }}"
+        common_name: "{{ cfssl_common_name }}"
+        hosts: "{{ cfssl_hosts }}"
+        names: "{{ cfssl_names }}"
+      register: this_cert
+      no_log: false
+
+    - set_fact:
+        _job_cert: "{{ this_cert['cert'] }}"
+        _job_key: "{{ this_cert['key'] }}"
+      no_log: false
+  when: cfssl_state == 'present'
+ 
+
+  
+

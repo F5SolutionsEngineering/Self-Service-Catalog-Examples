@@ -1,0 +1,45 @@
+ {
+  "class": "AS3",
+  "action": "deploy",
+  "persist": true,
+  "declaration": {
+    "class": "ADC",
+    "schemaVersion": "{{ as3_schema_version }}",
+    "id": "urn:uuid:{{ as3_tenant | default(lookup('pipe','uuidgen')) }}",
+    "label": "{{ as3_tenant }}",
+    "{{ as3_tenant }}": {
+      "class": "Tenant",
+      "{{ as3_app_name }}": {
+        "class": "Application",
+        "template": "https",
+        "serviceMain": {
+          "class": "Service_HTTPS",
+          "virtualAddresses": [
+            "{{ _job_virtual_address }}"
+          ],
+          "pool": "web_pool",
+          "serverTLS": "webtls"
+        },      
+        "web_pool": {
+          "class": "Pool",
+          "loadBalancingMode": "{{ as3_pool_lb_mode }}",
+          "monitors": [
+            "{{ as3_pool_monitor }}"
+          ],
+          "members": {% include as3_member_template %}
+        },
+        "webtls": {
+          "class": "TLS_Server",
+          "certificates": [{
+            "certificate": "appcert"
+          }]
+        },
+        "appcert": {
+          "class": "Certificate",
+          "certificate": "{{ _job_cert }}",
+          "privateKey": "{{ _job_key }}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+---
+- hosts: bigip1
+  connection: local
+  vars_files:
+    - ./udf_infra.yml
+    - ./app_settings.yml
+    - ./secrets.yml
+  vars:
+    - deployment_state: present
+    - application_fqdn: example.demo.internal
+  roles:
+    - ipam_phpipam
+    - cert_cfssl
+    - bigip_as3_deploy

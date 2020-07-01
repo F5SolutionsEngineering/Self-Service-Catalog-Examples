@@ -1,9 +1,6 @@
 ---
 - name: Manage Application Services with AS3
-  block:
-    - debug:
-        msg: "{{ lookup('template', 'templates/' + as3_template + '.j2') }}"
-        
+  block:        
     - bigip_appsvcs_extension:
         content: "{{ lookup('template', 'templates/' + as3_template + '.j2') }}"
         provider: "{{ bigip_provider }}"

@@ -1,4 +1,4 @@
-# UDF-Example1
+# Self Service Catalog UDF Example
 
 This is the simplest example provided. 
 This example uses the following components from the UDF blueprint and requires the cooresponding variables:
@@ -11,37 +11,37 @@ The following roles from the f5solutionsengineering/ss-cat collection are used:
 - cert_cfssl
 - bigip_as3_deploy
 
-Based on the roles used, the following variables are required:
+Based on the roles used for this example, you will need to describe your infrastructure.
+This is done by declaring the following variables:
 ```yaml
 ---
-ipam_url
-ipam_user
-ipam_password
-ipam_subnet
-ipam_section
+# Required Job Variables (pass at rjob runtime)
+deployment_state:
+application_fqdn:
 ---
-nios_host
-nios_ipv4_network
-nios_user
-nios_password
+# IPAM provider Variables
+ipam_url:
+ipam_user:
+ipam_password:
+ipam_subnet:
+ipam_section:
 ---
-cfssl_url
-cfssl_names
+# CloudFlare SSL Variables
+cfssl_url:
+cfssl_names:
 ---
-bigip_host
-bigip_user
-bigip_password
-bigip_as3_template
+# BIG-IP variable
+bigip_host:
+bigip_user:
+bigip_password:
+---
+# Variables that describe BIG-IP's application services
+application_lb_mode:
+application_pool_monitor:
+application_template:
 ```
 
-Note that different variables will be required depending on what roles are required by your playbook.
+Variables that are sensitive in nature, such as passwords, should be encrypted.
+In this simple example we've place such variables in ``secrets.yml`` and encrypted this file using Ansible Vault.
 
 
-  phpipam_freeip:
-    username: admin
-    password: secret
-    url: 'http://ipam.domain.tld/api/app/'
-    subnet: '192.168.10.0/24'
-    section: ansible-section
-    description: 'Optional description'
-  register: new_ip

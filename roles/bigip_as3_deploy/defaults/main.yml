@@ -6,8 +6,8 @@ bigip_provider:
   password: "{{ bigip_password }}"
   validate_certs: false
 as3_state: "{{ deployment_state|default('present') }}"
-as3_template: "{{application_template }}"
-as3_app_name: "{{ application_name }}"
+as3_template: "{{ application_template }}"
+as3_app_name: "{{ application_fqdn.split('.')[0] }}"
 as3_tenant: "{{ 'tenant-' + application_name }}"
 as3_pool_members: "{{ application_pool_members }}"
 as3_share_nodes: true

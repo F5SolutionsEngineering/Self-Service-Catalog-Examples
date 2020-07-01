@@ -13,9 +13,4 @@
     - ipam_phpipam
     - cert_cfssl
     - bigip_as3_deploy
-  tasks:
-    - name: Important info
-      debug:
-        msg:
-        - "Application URL is: {{ application_fqdn }}"
-        - "Application Virtual Server Address: {{ _job_virtual_address }}"
+    - summary

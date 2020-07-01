@@ -1,0 +1,16 @@
+---
+# tasks file for summary
+- name: Important info
+  block:
+    - debug:
+        msg:
+        - "Application URL is: {{ application_fqdn }}"
+        - "Application Virtual Server Address: {{ _job_virtual_address }}"
+  when: deployment_state == "present"
+
+- name: Important info
+  block:
+    - debug:
+        msg:
+        - "Application Removed Sucessfully."
+  when: deployment_state == "absent"

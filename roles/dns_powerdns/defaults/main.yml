@@ -7,6 +7,7 @@ strict_ssl_checking: "{{ dns_api_strict_ssl|default(false) }}"
 
 powerDNS_record_name: "{{ application_fqdn + '.' }}"
 powerDNS_zone: "{{ application_zone }}"
+powerDNS_record_type: A
 powerDNS_record_content: "{{ _job_virtual_address }}"
 
 powerDNS_state: "{{ deployment_state|default('present') }}"

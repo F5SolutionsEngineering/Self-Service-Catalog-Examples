@@ -6,14 +6,14 @@ bigip_provider:
   password: "{{ bigip_password }}"
   validate_certs: false
 as3_state: "{{ deployment_state|default('present') }}"
-as3_template: "{{ application_template }}"
-as3_app_name: "{{ application_name }}"
-as3_tenant: "{{ 'tenant-' + application_name }}"
+as3_template: "{{ as3_app_template }}"
+as3_app_name: "{{ as3_app_name }}"
+as3_tenant: "{{ as3_app_tenant }}"
 as3_pool_members: "{{ application_pool_members }}"
 as3_share_nodes: true
-as3_member_template: "{{ './templates/members-' + application_member_type + '.j2'|default('./templates/members-address.j2') }}"
-as3_pool_lb_mode: "{{ application_lb_mode }}"
-as3_pool_monitor: "{{ application_pool_monitor }}"
+as3_member_template: "{{ './templates/members-' as3_app_member_type + '.j2'|default('./templates/members-address.j2') }}"
+as3_pool_lb_mode: "{{ as3_app_lb_mode }}"
+as3_pool_monitor: "{{ as3_app_pool_monitor }}"
 as3_schema_version: 3.17.0
 
 

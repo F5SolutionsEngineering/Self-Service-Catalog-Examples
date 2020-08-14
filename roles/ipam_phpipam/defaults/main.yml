@@ -2,6 +2,7 @@
 phpIPAM_url: "{{ ipam_url }}"
 phpIPAM_username: "{{ ipam_username }}"
 phpIPAM_password: "{{ ipam_password }}"
+
 phpIPAM_subnet: "{{ ipam_subnet }}"
 phpIPAM_section: "{{ ipam_section }}"
 phpIPAM_description: "{{ ipam_description }}"

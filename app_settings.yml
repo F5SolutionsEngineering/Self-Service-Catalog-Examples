@@ -1,6 +1,0 @@
----
-application_lb_mode: round-robin
-application_pool_monitor: http
-application_template: AS3-httpsv2
-application_member_type: address
-application_name: "{{ application_fqdn.split('.')[0] }}"

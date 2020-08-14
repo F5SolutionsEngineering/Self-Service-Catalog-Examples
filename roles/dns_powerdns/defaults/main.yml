@@ -1,0 +1,12 @@
+---
+powerDNS_host: "{{ dns_api_host }}"
+powerDNS_host_port: "{{ dns_api_port|default(8081) }}"
+powerDNS_host_protocol: "{{ dns_api_protocol|default('http') }}"
+powerDNS_api_key: "{{ dns_api_key }}"
+strict_ssl_checking: "{{ dns_api_strict_ssl|default(false) }}"
+
+powerDNS_record_name: "{{ application_fqdn + '.' }}"
+powerDNS_zone: "{{ application_zone }}"
+powerDNS_record_content: "{{ _job_virtual_address }}"
+
+powerDNS_state: "{{ deployment_state|default('present') }}"

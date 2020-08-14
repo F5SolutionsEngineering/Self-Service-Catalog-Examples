@@ -1,0 +1,8 @@
+---
+as3_app_lb_mode: round-robin
+as3_app_pool_monitor: http
+as3_app_template: AS3-httpsv2
+as3_app_member_type: address
+
+as3_app_name: "{{ application_fqdn.split('.')[0] | lower }}"
+as3_app_tenant: "{{ 'tenant-' + application_name }}"

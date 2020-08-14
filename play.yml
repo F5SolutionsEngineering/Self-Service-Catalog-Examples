@@ -8,6 +8,7 @@
     - ./secrets.yml
   roles:
     - ipam_phpipam
+    - dns_powerdns
     - cert_cfssl
     - bigip_as3_deploy
     - summary

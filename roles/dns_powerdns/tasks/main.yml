@@ -1,0 +1,29 @@
+---
+- name: Create DNS entry with powerDNS
+  block:
+    - powerdns_record:
+        name: "{{ powerDNS_record_name }}"
+        zone: "{{ powerDNS_zone }}"
+        type: "{{ powerDNS_record_type }}"
+        content: "{{ powerDNS_record_content }}"
+        ttl: "{{ powerDNS_record_ttl }}"
+        pdns_host: "{{ powerDNS_host }}"
+        pdns_port: "{{ powerDNS_host_port }}"
+        pdns_api_key: "{{ powerDNS_api_key }}"
+        pdns_prot: "{{ powerDNS_host_protocol }}"
+  
+  when: powerDNS_state == 'present'
+
+- name: Remove DNS entry with powerDNS
+  block:
+    - powerdns_record:
+        name: "{{ powerDNS_record_name }}"
+        zone: "{{ powerDNS_zone }}"
+        type: "{{ powerDNS_record_type }}"
+        pdns_host: "{{ powerDNS_host }}"
+        pdns_port: "{{ powerDNS_host_port }}"
+        pdns_api_key: "{{ powerDNS_api_key }}"
+        pdns_prot: "{{ powerDNS_host_protocol }}"
+        state: "{{ powerDNS_state }}"
+  
+  when: powerDNS_state == 'absent'

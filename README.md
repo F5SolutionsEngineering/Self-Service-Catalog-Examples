@@ -10,12 +10,13 @@ The following roles from the f5solutionsengineering/ss-cat collection are used:
 - ipam_phpIPAM
 - cert_cfssl
 - bigip_as3_deploy
+- summary
 
 Based on the roles used for this example, you will need to describe your infrastructure.
 This is done by declaring the following variables:
 ```yaml
 ---
-# Required Job Variables (pass at rjob runtime)
+# Required Job Variables (pass at job runtime)
 deployment_state:
 application_fqdn:
 ---
@@ -43,5 +44,7 @@ application_template:
 
 Variables that are sensitive in nature, such as passwords, should be encrypted.
 In this simple example we've place such variables in ``secrets.yml`` and encrypted this file using Ansible Vault.
+
+
 
 

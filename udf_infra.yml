@@ -9,5 +9,5 @@ application_pool_members:
 application_member_type: address
 
 application_name: "{{ application_fqdn.split('.')[0] | lower }}"
-application_zone: "{{ application_fqdn.split('.')[-2:] | lower }}"
+application_zone: "{{ application_fqdn.split('.')[-2:] | join('.') | lower  }}"
 

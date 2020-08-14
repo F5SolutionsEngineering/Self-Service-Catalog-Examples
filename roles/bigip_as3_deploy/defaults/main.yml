@@ -11,7 +11,7 @@ as3_app_name: "{{ as3_app_name }}"
 as3_tenant: "{{ as3_app_tenant }}"
 as3_pool_members: "{{ application_pool_members }}"
 as3_share_nodes: true
-as3_member_template: "{{ './templates/members-' as3_app_member_type + '.j2'|default('./templates/members-address.j2') }}"
+as3_member_template: "{{ './templates/members-' + as3_app_member_type + '.j2'|default('./templates/members-address.j2') }}"
 as3_pool_lb_mode: "{{ as3_app_lb_mode }}"
 as3_pool_monitor: "{{ as3_app_pool_monitor }}"
 as3_schema_version: 3.17.0

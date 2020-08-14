@@ -4,7 +4,7 @@
   connection: local
   vars_files:
     - ./udf_infra.yml
-    - ./app_settings.yml
+    - ./as3_settings.yml
     - ./secrets.yml
   roles:
     - ipam_phpipam

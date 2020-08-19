@@ -143,6 +143,7 @@ def main():
             master_subnet=dict(type=str, required=False),
             description=dict(type=str, required=False),
             vlan=dict(type=str, required=False),
+            validate_certs=dict(type='bool', default=True),
             state=dict(default='present', choices=['present', 'absent'])
         ),
         supports_check_mode=False
@@ -159,9 +160,10 @@ def main():
     master_subnet = module.params['master_subnet']
     description = module.params['description']
     vlan = module.params['vlan']
+    validate_certs = module.params['validate_certs']
     state = module.params['state']
 
-    session = PhpIpamWrapper(username, password, url)
+    session = PhpIpamWrapper(username, password, url, validate_certs)
     try:
         session.create_session()
     except AttributeError:

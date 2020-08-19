@@ -129,6 +129,7 @@ def main():
             name=dict(type=str, required=True),
             domainid=dict(type=str, required=False, default=1),
             description=dict(type=str, required=False, default="None"),
+            validate_certs=dict(type='bool', default=True),
             state=dict(default='present', choices=['present', 'absent'])
         ),
         supports_check_mode=True
@@ -144,9 +145,10 @@ def main():
     name = module.params['name']
     domainid = module.params['domainid']
     description = module.params['description']
+    validate_certs = module.params['validate_certs']
     state = module.params['state']
 
-    session = PhpIpamWrapper(username, password, url)
+    session = PhpIpamWrapper(username, password, url, validate_certs)
     try:
         session.create_session()
     except AttributeError:

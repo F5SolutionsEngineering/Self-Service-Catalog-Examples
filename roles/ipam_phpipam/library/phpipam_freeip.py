@@ -146,11 +146,11 @@ def main():
     section = module.params['section']
     hostname = module.params['hostname']
     description = module.params['description']
-    verify = module.params['validate_certs']
+    validate_certs = module.params['validate_certs']
     state = module.params['state']
 
-    session = PhpIpamWrapper(username, password, url, verify)
-    print("DEBUG: {0}".format(verify))
+    session = PhpIpamWrapper(username, password, url, validate_certs)
+    print("DEBUG: {0}".format(validate_certs))
     try:
         session.create_session()
     except AttributeError:

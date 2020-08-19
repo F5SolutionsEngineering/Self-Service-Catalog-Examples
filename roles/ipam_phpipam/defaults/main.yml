@@ -2,10 +2,10 @@
 phpIPAM_url: "{{ ipam_url }}"
 phpIPAM_username: "{{ ipam_username }}"
 phpIPAM_password: "{{ ipam_password }}"
+validate_certs: "{{ ipam_strict_ssl|default(false) }}"
 
 phpIPAM_subnet: "{{ ipam_subnet }}"
 phpIPAM_section: "{{ ipam_section }}"
 phpIPAM_description: "{{ ipam_description }}"
 phpIPAM_hostname: "{{ application_fqdn }}"
 phpIPAM_state: "{{ deployment_state|default('present') }}"
-validate_certs: False

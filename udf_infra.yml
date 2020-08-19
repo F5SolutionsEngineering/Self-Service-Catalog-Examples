@@ -4,8 +4,8 @@ ipam_subnet: 10.1.20.16/29
 ipam_description: "BIG-IP Virtual Address"
 
 application_pool_members: 
-  - 10.1.10.5:8081
-  - 10.1.10.5:8082
+  - 10.1.10.11:8081
+  - 10.1.10.11:8082
 application_member_type: address
 
 application_name: "{{ application_fqdn.split('.')[0] | lower }}"

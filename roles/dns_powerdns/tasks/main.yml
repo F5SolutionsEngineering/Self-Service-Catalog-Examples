@@ -11,6 +11,7 @@
         pdns_port: "{{ powerDNS_host_port }}"
         pdns_api_key: "{{ powerDNS_api_key }}"
         pdns_prot: "{{ powerDNS_host_protocol }}"
+        strict_ssl_checking: "{{ powerDNS_strict_ssl }}"
   
   when: powerDNS_state == 'present'
 
@@ -24,6 +25,7 @@
         pdns_port: "{{ powerDNS_host_port }}"
         pdns_api_key: "{{ powerDNS_api_key }}"
         pdns_prot: "{{ powerDNS_host_protocol }}"
+        strict_ssl_checking: "{{ powerDNS_strict_ssl }}"
         state: "{{ powerDNS_state }}"
   
   when: powerDNS_state == 'absent'

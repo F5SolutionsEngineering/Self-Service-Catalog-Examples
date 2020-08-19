@@ -20,6 +20,7 @@ class PhpIpamWrapper(urls.Request):
 
     # Create and authenticates a session against phpipam server
     def create_session(self):
+        print("DEBUG3: {0}".format(self.verify))
         url = self.url + 'user/'
         auth = json.load(self.post(url, headers=self.auth_header))
         token = auth['data']['token']

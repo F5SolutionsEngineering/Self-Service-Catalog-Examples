@@ -16,6 +16,7 @@ class PhpIpamWrapper(urls.Request):
         self.auth_header = {'Authorization':
                             urls.basic_auth_header(self.username, self.password)}
         self.verify = verify
+        print("DEBUG2: {0}".format(self.verify))
 
     # Create and authenticates a session against phpipam server
     def create_session(self):

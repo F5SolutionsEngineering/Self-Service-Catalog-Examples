@@ -9,6 +9,7 @@
         section: "{{ phpIPAM_section }}"
         hostname: "{{ phpIPAM_hostname }}"
         description: "{{ phpIPAM_description }}"
+        validate_certs: "{{ validate_certs }}"
         state: "{{ phpIPAM_state }}"
       register: new_ip
 
@@ -27,6 +28,7 @@
         section: "{{ phpIPAM_section }}"
         hostname: "{{ phpIPAM_hostname }}"
         description: "{{ phpIPAM_description }}"
+        validate_certs: "{{ validate_certs }}"
         state: "{{ phpIPAM_state }}"
 
   when: phpIPAM_state == 'absent'

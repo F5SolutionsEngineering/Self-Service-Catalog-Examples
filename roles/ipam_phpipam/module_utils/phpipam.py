@@ -16,11 +16,11 @@ class PhpIpamWrapper(urls.Request):
         self.auth_header = {'Authorization':
                             urls.basic_auth_header(self.username, self.password)}
         self.validate_certs = validate_certs
-        print("DEBUG2: {0}".format(self.verify))
+        print("DEBUG2: {0}".format(self.validate_certs))
 
     # Create and authenticates a session against phpipam server
     def create_session(self):
-        print("DEBUG3: {0}".format(self.verify))
+        print("DEBUG3: {0}".format(self.validate_certs))
         url = self.url + 'user/'
         auth = json.load(self.post(url, headers=self.auth_header))
         token = auth['data']['token']

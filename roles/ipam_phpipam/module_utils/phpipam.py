@@ -8,13 +8,14 @@ import urllib
 
 
 class PhpIpamWrapper(urls.Request):
-    def __init__(self, username, password, url):
+    def __init__(self, username, password, url, verify):
         urls.Request.__init__(self)
         self.username = username
         self.password = password
         self.url = url
         self.auth_header = {'Authorization':
                             urls.basic_auth_header(self.username, self.password)}
+        self.verify = verify
 
     # Create and authenticates a session against phpipam server
     def create_session(self):

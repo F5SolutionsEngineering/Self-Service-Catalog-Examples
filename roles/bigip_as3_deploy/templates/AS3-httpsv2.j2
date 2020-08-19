@@ -18,7 +18,10 @@
             "{{ _job_virtual_address }}"
           ],
           "pool": "web_pool",
-          "serverTLS": "webtls"
+          "serverTLS": "webtls",
+          "profileMultiplex": {
+            "bigip": "/Common/oneconnect"
+          }
         },      
         "web_pool": {
           "class": "Pool",

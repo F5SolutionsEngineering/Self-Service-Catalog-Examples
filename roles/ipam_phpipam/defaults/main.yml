@@ -8,4 +8,4 @@ phpIPAM_section: "{{ ipam_section }}"
 phpIPAM_description: "{{ ipam_description }}"
 phpIPAM_hostname: "{{ application_fqdn }}"
 phpIPAM_state: "{{ deployment_state|default('present') }}"
-verify_certs: False
+validate_certs: False

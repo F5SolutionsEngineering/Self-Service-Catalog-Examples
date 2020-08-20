@@ -18,6 +18,6 @@
     - bigip_appsvcs_extension:
         provider: "{{ bigip_provider }}"
         tenants:
-          - "{{ as3_tenant }}"
+          - {{ as3_tenant }}
         state: "{{ as3_state }}"
   when: as3_state == "absent"

@@ -6,18 +6,9 @@
         content: "{{ lookup('template', 'templates/' + as3_template + '.j2') }}"
   when: as3_state == "present"
 
-#- name: Remove Application Services with AS3
-#  block:
-#    - bigip_appsvcs_extension:
-#        provider: "{{ bigip_provider }}"
-#        content: "{{ lookup('template', 'templates/AS3-delete-tenant.j2') }}"
-#  when: as3_state == "absent"
-
 - name: Remove Application Services with AS3
   block:
     - bigip_appsvcs_extension:
         provider: "{{ bigip_provider }}"
-        tenants:
-          - "{{ as3_tenant }}"
-        state: "{{ as3_state }}"
+        content: "{{ lookup('template', 'templates/AS3-delete-tenant.j2') }}"
   when: as3_state == "absent"

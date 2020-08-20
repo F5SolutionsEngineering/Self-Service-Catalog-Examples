@@ -150,7 +150,6 @@ def main():
     state = module.params['state']
 
     session = PhpIpamWrapper(username, password, url, validate_certs)
-    print("DEBUG: {0}".format(validate_certs))
     try:
         session.create_session()
     except AttributeError:
